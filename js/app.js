@@ -27,13 +27,11 @@ function loadNames(e) {
   // Fetch API
 
   fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(names) {
+    .then(response => response.json())
+    .then(names => {
       let html = "<h2>Generated Names</h2>";
       html += '<ul class="list">';
-      names.forEach(function(name) {
+      names.forEach(name => {
         html += `
                   <li>${name.name}</li>
              `;
@@ -43,7 +41,5 @@ function loadNames(e) {
 
       document.querySelector("#result").innerHTML = html;
     })
-    .catch(function(error) {
-      console.log(error);
-    });
+    .catch(error => console.log(error));
 }
